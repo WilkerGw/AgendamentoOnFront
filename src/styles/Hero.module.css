@@ -1,0 +1,76 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #eeeeee;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.title {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: lighter;
+}
+
+.txtHorarios {
+  margin-top: 1rem;
+}
+
+.span {
+  color: #ffdd56;
+  font-weight: bold;
+  font-size: 2.3rem;
+}
+
+@media (min-width: 768px) {
+  .span {
+    font-size: 2.5rem;
+  }
+}
+
+.spanDate {
+  font-weight: bold;
+  color: #ffdd56;
+}
+
+.button {
+  width: 15rem;
+  height: 3rem;
+  background: linear-gradient(to right, #ffe57b, #ffcc00);
+  border-radius: .7rem;
+  border: none;
+  color: #5e5e5ebd;
+  padding: 5px 20px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  margin-top: 1.5rem;
+  cursor: pointer;
+}
+
+.logo {
+    width: 10rem;
+    position: absolute;
+    top: 5rem;
+}
+
+.contatos {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    opacity: .8;
+    margin-top: 1rem;
+}
+
+.redeImg{
+    width: 2rem;
+}
+
+.redesContainer {
+    position: absolute;
+    bottom: 7rem;
+}

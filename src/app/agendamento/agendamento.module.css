@@ -1,0 +1,15 @@
+.agendamento {
+    width: 100%;
+    height: 100vh;
+    color: #eeeeee;
+    position: relative;
+}
+
+.iconeVoltar{
+    width: 2rem;
+    background-color: transparent;
+    position: absolute;
+    top: 4rem;
+    left: 2rem;
+}
+
