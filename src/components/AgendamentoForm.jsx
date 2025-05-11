@@ -36,7 +36,7 @@ const AgendamentoForm = () => {
   const formatarTelefone = (value) => {
     const cleanedValue = value.replace(/\D/g, "").slice(0, 11);
     if (cleanedValue.length < 2) {
-      return cleanedValue; // Retorna o valor bruto se tiver menos de 2 dígitos
+      return cleanedValue;
     }
     const ddd = cleanedValue.slice(0, 2);
     const primeiroDigito = cleanedValue.slice(2, 3);
@@ -67,12 +67,12 @@ const AgendamentoForm = () => {
       return;
     }
     try {
-      const response = await fetch("https://agendamento-on-back.vercel.app/agendamento", {
+      const response = await fetch("https://agendamento-on-front.vercel.app/agendamento", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ nome, telefone, data: dataFixa, hora }), // Enviando a data fixa
+        body: JSON.stringify({ nome, telefone, data: dataFixa, hora }),
       });
       if (response.ok) {
         setMensagem("Agendamento realizado com sucesso!");
