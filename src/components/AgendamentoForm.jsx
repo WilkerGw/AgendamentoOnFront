@@ -67,7 +67,7 @@ const AgendamentoForm = () => {
       return;
     }
     try {
-      const response = await fetch("https://agendamento-on-back.vercel.app", {
+      const response = await fetch("https://agendamentoonback.onrender.com/api/agendamento", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
