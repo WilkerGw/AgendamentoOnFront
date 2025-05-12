@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import styles from "../styles/AgendamentoForm.module.css";
+import LoadingOverlay from "./LoadingOverlay"; // Importe o componente LoadingOverlay
 
 const AgendamentoForm = () => {
   const [nome, setNome] = useState("");
@@ -12,6 +13,7 @@ const AgendamentoForm = () => {
   const [telefoneFocus, setTelefoneFocus] = useState(false);
   const [horaFocus, setHoraFocus] = useState(false);
   const [horariosDisponiveis, setHorariosDisponiveis] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   // Definindo a data fixa diretamente no estado
   const [dataFixa] = useState("2025-05-21"); // Use a data fixa desejada
@@ -62,13 +64,16 @@ const AgendamentoForm = () => {
     event.preventDefault();
     setMensagem("");
     setErro("");
+    setLoading(true); // Inicia o loading
+
     if (!nome || !telefone || !hora) {
       setErro("Por favor, preencha todos os campos.");
+      setLoading(false); // Encerra o loading
       return;
     }
     try {
       const response = await fetch(
-        "https://agendamentoonback.onrender.com/api/agendamento",
+        "https://agendamentoonback.onrender.com/api/agendamento ",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -90,11 +95,14 @@ const AgendamentoForm = () => {
     } catch (error) {
       setErro("Erro ao conectar com o servidor.");
       console.error("Erro:", error);
+    } finally {
+      setLoading(false); // Encerra o loading
     }
   };
 
   return (
     <div className={styles.container}>
+      {loading && <LoadingOverlay />}
       <div className={styles.headLine}>
         <p className={styles.txt}>Garanta uma consulta com um Optometrista!</p>
         <p className={styles.txtVagas}>Vagas limitadas!</p>
