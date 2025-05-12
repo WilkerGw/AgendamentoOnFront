@@ -67,13 +67,14 @@ const AgendamentoForm = () => {
       return;
     }
     try {
-      const response = await fetch("https://agendamentoonback.onrender.com/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ nome, telefone, data: dataFixa, hora }),
-      });
+      const response = await fetch(
+        "https://agendamentoonback.onrender.com/api/agendamento",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ nome, telefone, data: dataFixa, hora }),
+        }
+      );
       if (response.ok) {
         setMensagem("Agendamento realizado com sucesso!");
         setNome("");
@@ -160,7 +161,10 @@ const AgendamentoForm = () => {
           />
         </div>
         <p className={styles.txtHorario}>
-          Horários disponíveis para o dia <span className={styles.spanDate}>{dataFixa.split('-').reverse().join('/')}</span>
+          Horários disponíveis para o dia{" "}
+          <span className={styles.spanDate}>
+            {dataFixa.split("-").reverse().join("/")}
+          </span>
         </p>
         <div className={styles.formGroup}>
           <div
@@ -189,7 +193,9 @@ const AgendamentoForm = () => {
             onBlur={() => !hora && setHoraFocus(false)}
             required
           >
-            <option value="" disabled>Selecione o horário</option>
+            <option value="" disabled>
+              Selecione o horário
+            </option>
             {horariosDisponiveis.map((h) => (
               <option key={h} value={h}>
                 {h}
