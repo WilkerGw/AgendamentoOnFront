@@ -67,7 +67,7 @@ const AgendamentoForm = () => {
       return;
     }
     try {
-      const response = await fetch("https://agendamentoonback.onrender.com/api/agendamento", {
+      const response = await fetch("https://agendamentoonback.onrender.com/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
